@@ -4,12 +4,14 @@ import rospy
 from std_msgs.msg import Float32
 
 def hw3pub():
-    pub = rospy.Publisher("/homework2/topic", Float32, queue_size=10);
-    rospy.init_node('hw3pub', anonymous=True)
+    pub = rospy.Publisher("/homework2/delta", Float32, queue_size=10);
+    rospy.init_node("hw3pub", anonymous=True)
     rate = rospy.Rate(10)  # 10hz
 
     while not rospy.is_shutdown():
-        pub.publish(8492)
+        dataToPub = 8492
+        rospy.loginfo("sending data")
+        pub.publish(dataToPub)
         rate.sleep()
 
 if __name__ == '__main__':

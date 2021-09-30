@@ -1,5 +1,5 @@
 <launch>
+	<include file="$(find homework2)/launch/homework2.launch" />
 	<node pkg="homework3" name="hw3pub" type="hw3pub.py"/>
 	<node pkg="homework3" name="hw3sub" type="hw3sub.py"/>
-	<include file="$(find homework2)/launch/homework2.launch" />
 </launch>

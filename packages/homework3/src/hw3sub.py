@@ -2,16 +2,16 @@
 
 import rospy
 from std_msgs.msg import Float32
+#include <ros/console.h>
 
 def callback(data):
-    rospy.loginfo(data.data)
+    rospy.loginfo(rospy.get_caller_id()+ " Data recieved -- %s", data.data)
 
-def hw3sub():
-    rospy.init_node('listener', anonymous=True)
-
-    rospy.Subscriber("delta", Float32, callback)
-
+def listener():
+    rospy.init_node('subscriberNode', anonymous=True)
+    rospy.Subscriber("/homework2/total", Float32, callback)
     rospy.spin()
 
+
 if __name__ == '__main__':
-    hw3sub()
+    listener()
