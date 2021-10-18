@@ -9,7 +9,7 @@ def circle():
     rate = rospy.Rate(10)  # 10hz
 
     while not rospy.is_shutdown():
-        msg = Twist2DStamped(header=none, v=1.0, omega=0)
+        msg = Twist2DStamped(header=None, v=1.0, omega=0)
 
         circpub.publish(msg)
         rate.sleep()
