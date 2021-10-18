@@ -4,7 +4,7 @@ import rospy
 from duckietown_msgs.msg import Twist2DStamped
 
 def circle():
-    circpub = rospy.Publisher('duck16/car_cmd_switch_node/cmd',wheelCmds, queue_size=1)  # may not be publishing correctly
+    circpub = rospy.Publisher('duck16/car_cmd_switch_node/cmd',Twist2DStamped, queue_size=1)  # may not be publishing correctly
     rospy.init_node('circle', anonymous=True)
     rate = rospy.Rate(10)  # 10hz
 
