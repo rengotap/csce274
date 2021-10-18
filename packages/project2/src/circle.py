@@ -1,26 +1,15 @@
 #!/usr/bin/env python3
 
 import rospy
-import Twist2d
-import numpy as np
-
-from duckietown_msgs.msg import WheelsCmdStamped
+from duckietown_msgs.msg import Twist2DStamped
 
 def circle():
-    circpub = rospy.Publisher('????',wheelCmds, queue_size=1)  # not sure what to publish to yet
+    circpub = rospy.Publisher('duck16/car_cmd_switch_node/cmd',wheelCmds, queue_size=1)  # may not be publishing correctly
     rospy.init_node('circle', anonymous=True)
     rate = rospy.Rate(10)  # 10hz
 
     while not rospy.is_shutdown():
-        msg = wheelCmds()
-        # Ignore this we're going to use twist2D
-        msg.vLeft = np.random.random()  # temporary left speed
-        msg.vRight = np.random.random()  # temporary right speed
-        # end ignore
-
-        #right_wheel_voltage = (gain + trim) * (linearVelocity + angularVelocity * 0.5 * baseline)
-        #left_wheel_voltage = (gain-trim) * (linearVelocity - angularVelocity * 0.5 * baseline)
-
+        msg = Twist2DStamped(header=none, v=1.0, omega=0)
 
         circpub.publish(msg)
         rate.sleep()
