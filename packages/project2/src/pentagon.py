@@ -21,6 +21,6 @@ def pentagon():
 
 if __name__ == '__main__':
     try:
-        circle()
-    except rospy.ROSInterruptException
+        pentagon()
+    except rospy.ROSInterruptException:
         pass
