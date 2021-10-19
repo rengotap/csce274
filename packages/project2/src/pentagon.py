@@ -9,7 +9,7 @@ def pentagon():
     rospy.init_node('pentagon')
     rate = rospy.Rate(10)  # 10hz
 
-    for i in range(6):  # loop 5x b/c pentagon
+    for i in range(5):  # loop 5x b/c pentagon
         # drive straight for .25m
         msg = Twist2DStamped(v=.25, omega=0)  # start
         pentapub.publish(msg)
