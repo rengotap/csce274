@@ -11,7 +11,7 @@ def pentagon():
 
     for i in range(5):  # loop 5x b/c pentagon
         # drive straight for .25m
-        msg = Twist2DStamped(v=.8, omega=0)  # start
+        msg = Twist2DStamped(v=.25, omega=0)  # start
         pentapub.publish(msg)
         time.sleep(1)  # sleep for 1 sec
         msg = Twist2DStamped(v=0, omega = 0) # stop
