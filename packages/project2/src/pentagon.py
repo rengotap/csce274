@@ -13,7 +13,7 @@ def pentagon():
         # drive straight for .25m
         msg = Twist2DStamped(v=.25, omega=0)  # start
         pentapub.publish(msg)
-        time.sleep(2)  # sleep for 2 sec
+        time.sleep(1.5)  # sleep for 2 sec
         msg = Twist2DStamped(v=0, omega = 0) # stop
         pentapub.publish(msg)
         # turn 108 degrees
