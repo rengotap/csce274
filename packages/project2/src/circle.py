@@ -7,7 +7,7 @@ def circle():
     circpub = rospy.Publisher('/duck16/car_cmd_switch_node/cmd',Twist2DStamped, queue_size=10)  # may not be publishing correctly?
     rospy.init_node('circle')
     rate = rospy.Rate(10)  # 10hz
-    msg = Twist2DStamped(v=0.4, omega=4)
+    msg = Twist2DStamped(v=0.4, omega=0)
 
     circpub.publish(msg)
     rate.sleep()
