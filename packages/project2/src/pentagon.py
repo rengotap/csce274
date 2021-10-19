@@ -16,7 +16,13 @@ def pentagon():
         time.sleep(1.5)  # sleep for 2 sec
         msg = Twist2DStamped(v=0, omega = 0) # stop
         pentapub.publish(msg)
+
         # turn 108 degrees
+        msg = Twist2DStamped(v=0, omega = 2)  #turn
+        pentapub.publish(msg)
+        time.sleep(1)
+        msg = pentapub.publish(v=0, omega = 0) #stop
+
         time.sleep(2)
 
     rate.sleep()
