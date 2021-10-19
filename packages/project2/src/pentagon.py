@@ -18,7 +18,7 @@ def pentagon():
         pentapub.publish(msg)
 
         # turn 108 degrees
-        msg = Twist2DStamped(v=0.1, omega = -7.5)  #turn
+        msg = Twist2DStamped(v=0.1, omega = -7)  #turn
         pentapub.publish(msg)
         time.sleep(1)
         msg = pentapub.publish(v=0, omega = 0) #stop
