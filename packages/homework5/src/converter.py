@@ -11,13 +11,13 @@ class Converter:
 
     def callback(self, data):
         # convert to meters
-        self.output = data/float(3.218)
+        self.output = data*0.3048
         self.pub.publish(self.output)
         # convert to feet
         self.output = data
         self.pub.publish(self.output)
         # convert to smoot
-        self.output = data/float(5.583)
+        self.output = data*0.179104
         self.pub.publish(self.output)
 
 if __name__ == '__main__':
