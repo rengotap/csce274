@@ -6,7 +6,7 @@ from std_msgs.msg import Float32
 def hw3pub():
     pub = rospy.Publisher("/homework2/delta", Float32, queue_size=10);
     rospy.init_node("hw3pub", anonymous=True)
-    rate = rospy.Rate(10)  # 10hz
+    rate = rospy.Rate(100)  # 10hz
 
     while not rospy.is_shutdown():
         dataToPub = 8492

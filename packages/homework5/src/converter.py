@@ -12,20 +12,16 @@ class Converter:
 
     def talker(self):
         while True:
-           # print("testing 02")
             self.pub.publish(self.conversion())
-            time.sleep(1)
+            time.sleep(1)  # to make it readable
 
     def listener(self, data):
-        #print('listening')
         self.input = data.data
         rospy.loginfo("getting -- %s, converted -- %s", self.input, self.conversion())
         self.unit = rospy.get_param('unit')
 
     def conversion(self):
-        #print("converting 03")
         unit = rospy.get_param('unit')
-        #print(unit)
         if unit == 'meter':
             msg = self.input*0.3048
         elif unit == 'feet':
@@ -37,7 +33,6 @@ class Converter:
 
 if __name__ == '__main__':
         rospy.init_node('converter')
-        #print("initialized 01")
         converter = Converter()
         converter.talker()
 
