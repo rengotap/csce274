@@ -1,31 +1,43 @@
 #!/usr/bin/env python3
 
 import rospy
+import time
 from std_msgs.msg import Float32
 
 class Converter:
     def __init__(self):
-        rospy.Subscriber("/homework2/total", Float32, self.callback)  # listening to hw2 total
-        self.pub = rospy.Publisher("converter", Float32, queue_size=10)  # publishing
-        #self.output = 0
+        self.pub = rospy.Publisher("talker",Float32, queue_size=10)
+        rospy.Subscriber("/homework2/total", Float32, self.listener)  # listening to hw2 total
+        self.input = 0
 
-    def callback(self, data):
-        converted = 0  # converted default to 0
-        convertTo = rospy.get_param('convertTo') # data in feet default to meter
-        if(convertTo == "meter"):  # meter
-                converted = data.data*0.3048
-        elif(feet == "feet"):  # feet
-                converted = data.data
-        elif(smoot == "smoot"):  # smoot
-                converted = data.data*0.179104
+    def talker(self):
+        while True:
+           # print("testing 02")
+            self.pub.publish(self.conversion())
+            time.sleep(1)
 
-        self.pub.publish(converted)
-        rospy.loginfo(rospy.get_caller_id() + "Data recieved -- %s", converted)
+    def listener(self, data):
+        #print('listening')
+        self.input = data.data
+        rospy.loginfo("getting -- %s, converted -- %s", self.input, self.conversion())
+        self.unit = rospy.get_param('unit')
+
+    def conversion(self):
+        #print("converting 03")
+        unit = rospy.get_param('unit')
+        #print(unit)
+        if unit == 'meter':
+            msg = self.input*0.3048
+        elif unit == 'feet':
+            msg = self.input
+        elif unit == 'smoot':
+            msg = self.input*0.179104
+        return msg
+
 
 if __name__ == '__main__':
-    rospy.init_node('converter')
-    rospy.spin()
-    try:
-        Converter()
-    except rospy.ROSInterruptException:
-        pass
+        rospy.init_node('converter')
+        #print("initialized 01")
+        converter = Converter()
+        converter.talker()
+
