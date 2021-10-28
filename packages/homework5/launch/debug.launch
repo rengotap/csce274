@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="homework5" name="debug" type="debug.py"/>
+</launch>
