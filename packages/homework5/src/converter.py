@@ -17,7 +17,8 @@ class Converter:
 
     def listener(self, data):
         self.input = data.data
-        rospy.loginfo("getting -- %s, converted -- %s", self.input, self.conversion())
+        unit = rospy.get_param('unit')
+        rospy.loginfo("getting -- %s, converted -- %s, unit -- %s", self.input, self.conversion(), unit)
         self.unit = rospy.get_param('unit')
 
     def conversion(self):
