@@ -1,4 +1,5 @@
 <launch>
+	<remap from="/converter" to="homework2/total"/>
 	<include file="$(find homework3)/launch/homework3.launch"/>
 	<node pkg="homework5" name="converter" type="converter.py"/>
 </launch>
