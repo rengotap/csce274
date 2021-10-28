@@ -11,7 +11,7 @@ def debug():
     pub.publish(msg)
     rate.sleep()
 
-if __name__ == '__main__'
+if __name__ == '__main__':
     try:
         debug()
     except rospy.ROSInterruptException:
