@@ -34,7 +34,7 @@
     </include>
     <group ns="duck16">
 
-        <node pkg="project3" name="laneFollow" type="laneFollow.py output="screen"/>
+        <node pkg="project3" name="laneFollow" type="laneFollow.py" output="screen"/>
     
      </group>
    
