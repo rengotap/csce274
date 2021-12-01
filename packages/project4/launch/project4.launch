@@ -38,6 +38,6 @@
 	<param name="$(arg veh)/project4/p" type="double" value="1.0" />
 	<param name="$(arg veh)/project4/i" type="double" value="1.0" />
 	<param name="$(arg veh)/project4/d" type="double" value="1.0" />
-	<node pkg="project4" name="csce274project4" type="project4.py"/>
+	<node pkg="project4" name="project4" type="project4.py" output="screen" />
     </group>
 </launch>
